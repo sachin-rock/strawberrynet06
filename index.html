@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/jpg"
+        href="https://media.glassdoor.com/sqll/2397264/strawberrynet-squarelogo-1561462036150.png" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="header__left">
+            <img src="./Screenshot 2022-02-22 112708.png" alt="" srcset="">
+        </div>
+        <div class="header__mid">
+            <div class="inputbox">
+                <input type="text" placeholder="Search" id="search_results" />
+                <button>
+                    <i class="material-icons">search</i>
+                </button>
+
+            </div>
+            <div class="product_text">
+                <a href="#">Natural Beauty</a>
+                <a href="#">Estee Lauder</a>
+                <a href="#">Shiseido</a>
+                <a href="#">Double Serum</a>
+            </div>
+
+        </div>
+        <div class="header__right">
+            <div class="row1">
+                <div>Rs.INR India:English<i class="material-icons" style="font-size: 19px;">expand_more</i></div>
+                <div></div>
+                <div>Order Tracking</div>
+            </div>
+            <div class="row2">
+                <div><a href=""><i class="material-icons">account_circle</i>Signin</a></div>
+                <div><a href=""><i class="material-icons"> favorite</i>Whishlist</a></div>
+                <div><a href=""><i  class="material-icons">shopping_bag</i>Bag</a></div>
+            </div>
+        </div>
+    </header>
+    <!-- -----------------------------------------header end-------------------------------------------------- -->
+
+
+    <!-- -----------------------------------------category nav start-------------------------------------------------- -->
+
+    <div class="category__container">
+        <div class="dropdown">
+            <div class="dropbtn"><span class="material-icons">menu</span>SHOP BY BRAND</div>
+            <div class="dropdown-content">
+                <input type="text" placeholder="Search brand" id="myInput" onkeyup="filterFunction()" autocomplete="off">
+                <a href="">Biotherm</a>
+                <a href="">Bvlgari</a>
+                <a href="">Calvin Klein</a>
+                <a href="">Clarins</a>
+                <a href="">Clinique</a>
+                <a href="">Dermalogica</a>
+                <a href="#">Elizabeth Arden</a>
+                <a href="#">Estee Lauder</a>
+                <a href="#">Kiehl's</a>
+                <a href="#">La Prairie</a>
+            </div>
+        </div>
+     
+        <div><a href="">SKINCARE</a> </div>
+        <div><a href="">PERFUME</a> </div>
+        <div><a href="">HOMESCENTS</a> </div>
+        <div><a href="">MAKEUP</a> </div>
+        <div><a href="">SKINCARE</a> </div>
+        <div><a href="">HAIRCARE</a> </div>
+        <div><a href="">NATURAL BEAUTY</a> </div>
+        <div><a href=""><span class="material-icons">redeem</span>SPECIAL</a> </div>
+        <div><a href=""><span class="material-icons">star</span>NEW</a> </div>
+    </div>
+    <!-- ----------------------------------------category nav end----------------------------------------------- -->
+</body>
+<script src="./script.js"></script>
+</html>
+
