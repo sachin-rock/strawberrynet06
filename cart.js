@@ -54,6 +54,7 @@ function showData(data){
         sumArr[index] = x;
 
     showPrice(prodPrice,x);
+    let div5 = document.createElement("div");
     let dlt = document.createElement("img");
     dlt.id = "delete";
     dlt.src = "/Project/images/icons8-delete-64.png";
@@ -70,8 +71,8 @@ function showData(data){
         
 
     });
-
-    div4.append(dlt,prodPrice);
+    div5.append(dlt);
+    div4.append(prodPrice);
     //div4 completion
 
     let p10 = document.createElement("p");
@@ -82,7 +83,7 @@ function showData(data){
         if(qty<20){
             qty++;
             
-            p10.innerText = ` ${qty} `;
+            p10.innerText = `${qty}`;
             let val = qty * el.price;
             sumArr[index] = val;
             showPrice(prodPrice,val);
@@ -108,9 +109,9 @@ function showData(data){
     });
     
 
-    div3.append(b1,p10,b2);
+    div3.append(b2,p10,b1);
   
-    div.append(div1,div2,div3,div4);
+    div.append(div1,div2,div3,div4,div5);
 
     products.append(div);
   

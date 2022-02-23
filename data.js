@@ -23,3 +23,6 @@ let projectData = [
     ]
     
     localStorage.setItem("projectData",JSON.stringify(projectData));
+
+    let z = JSON.parse(localStorage.getItem("projectData"));
+    console.log(z);

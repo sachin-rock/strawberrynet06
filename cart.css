@@ -80,7 +80,8 @@ body{
 
 #card{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr ;
+    grid-template-columns: repeat(5,1fr);
     gap: 10px;
     /* padding-left: 5%; */
     background-color: white;
@@ -184,7 +185,7 @@ body{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     margin-top: 10px;
-
+    padding-left: 2%;
     
 }
 
@@ -195,9 +196,10 @@ body{
     padding-top: 0px;
     margin-top: opx;
     margin-bottom: 10px;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
     color: teal;
     font-size: larger;
+    /* padding-left: 10px; */
 
 }
 
@@ -205,9 +207,11 @@ body{
     background-color: white;
     padding-top: 10px;
     padding-left: 5%;
+    margin-top: -2%;
+    padding-right: 5%;
 }
 
 #products{
-    padding-bottom: 10px;
+    padding-bottom: 5%;
     margin-bottom: 10px;
 }
