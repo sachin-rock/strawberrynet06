@@ -200,3 +200,9 @@ button i {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.carouselcontainer{
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
