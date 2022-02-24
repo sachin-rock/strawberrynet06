@@ -19,7 +19,13 @@ function myFunction() {
   }
 
 
-
+var arr= JSON.parse(localStorage.getItem("projectData"))||[];
+function cartCountShow(cart){
+    var count =  document.getElementsByClassName("cartCount")[0]
+      count.textContent=cart.length;
+  
+  }
+  
 
   var mask=[
     {
@@ -97,7 +103,13 @@ mask.map(function(data){
 
     var btn=document.createElement("button");
     btn.textContent="Add to bag";
-    btn.setAttribute("class","btn");
+    btn.setAttribute("id","btn");
+    btn.addEventListener("click",function(){
+        arr.push(data);
+
+        localStorage.setItem("projectData" , JSON.stringify(arr));
+        cartCountShow(arr)
+    })
 
     div.append(image,nam,des,price,btn);
     
@@ -105,6 +117,7 @@ mask.map(function(data){
 
     document.querySelector(".mask").append(div);
 })
+
 
 var eye=[
        {
@@ -178,7 +191,15 @@ eye.map(function(data){
 
     var btn=document.createElement("button");
     btn.textContent="Add to bag";
-    btn.setAttribute("class","btn");
+    btn.setAttribute("id","btn");
+     btn.addEventListener("click",function(){
+        arr.push(data);
+
+        localStorage.setItem("projectData" , JSON.stringify(arr));
+        console.log(arr);
+        cartCountShow(arr)
+
+    })
     div.append(image,nam,des,price,btn);
     
    
@@ -259,7 +280,15 @@ hair.map(function(data){
 
     var btn=document.createElement("button");
     btn.textContent="Add to bag";
-    btn.setAttribute("class","btn");
+    btn.setAttribute("id","btn");
+     btn.addEventListener("click",function(){
+        arr.push(data);
+
+        localStorage.setItem("projectData" , JSON.stringify(arr));
+        console.log(arr);
+                cartCountShow(arr)
+
+    })
     div.append(image,nam,des,price,btn);
     
    
@@ -344,7 +373,15 @@ lips.map(function(data){
 
     var btn=document.createElement("button");
     btn.textContent="Add to bag";
-    btn.setAttribute("class","btn");
+    btn.setAttribute("id","btn");
+     btn.addEventListener("click",function(){
+        arr.push(data);
+
+        localStorage.setItem("projectData" , JSON.stringify(arr));
+        console.log(arr);
+                cartCountShow(arr)
+
+    })
     div.append(image,nam,des,price,btn);
     
    
@@ -427,7 +464,15 @@ men.map(function(data){
 
     var btn=document.createElement("button");
     btn.textContent="Add to bag";
-    btn.setAttribute("class","btn");
+    btn.setAttribute("id","btn");
+     btn.addEventListener("click",function(){
+        arr.push(data);
+
+        localStorage.setItem("projectData" , JSON.stringify(arr));
+        console.log(arr);
+                cartCountShow(arr)
+
+    })
     div.append(image,nam,des,price,btn);
     
    
@@ -504,7 +549,15 @@ var div=document.createElement("div");
 
     var btn=document.createElement("button");
     btn.textContent="Add to bag";
-    btn.setAttribute("class","btn");
+    btn.setAttribute("id","btn");
+     btn.addEventListener("click",function(){
+        arr.push(data);
+
+        localStorage.setItem("projectData" , JSON.stringify(arr));
+        console.log(arr);
+                cartCountShow(arr)
+
+    })
     div.append(image,nam,des,price,btn);
     
    
@@ -588,7 +641,15 @@ daily.map(function(data){
 
     var btn=document.createElement("button");
     btn.textContent="Add to bag";
-    btn.setAttribute("class","btn");
+    btn.setAttribute("id","btn");
+     btn.addEventListener("click",function(){
+        arr.push(data);
+
+        localStorage.setItem("projectData" , JSON.stringify(arr));
+        console.log(arr);
+                cartCountShow(arr)
+
+    })
     div.append(image,nam,des,price,btn);
     
    
@@ -646,8 +707,16 @@ var best=[
 
     var btn=document.createElement("button");
     btn.textContent="Add to bag";
-    btn.setAttribute("class","btn");
+    btn.setAttribute("id","btn");
     div.append(image,nam,des,price,btn);
+     btn.addEventListener("click",function(){
+        arr.push(data);
+
+        localStorage.setItem("projectData" , JSON.stringify(arr));
+        console.log(arr);
+                cartCountShow(arr)
+
+    })
       document.querySelector(".best").append(div);
 })
 
@@ -699,8 +768,16 @@ var div=document.createElement("div");
 
     var btn=document.createElement("button");
     btn.textContent="Add to bag";
-    btn.setAttribute("class","btn");
+    btn.setAttribute("id","btn");
     div.append(image,nam,des,price,btn);
+     btn.addEventListener("click",function(){
+        arr.push(data);
+
+        localStorage.setItem("projectData" , JSON.stringify(arr));
+        console.log(arr);
+                cartCountShow(arr)
+
+    })
       document.querySelector(".deals").append(div)
 })
 
@@ -751,7 +828,15 @@ wen.map(function(data){
 
     var btn=document.createElement("button");
     btn.textContent="Add to bag";
-    btn.setAttribute("class","btn");
+    btn.setAttribute("id","btn");
     div.append(image,nam,des,price,btn);
+     btn.addEventListener("click",function(){
+        arr.push(data);
+
+        localStorage.setItem("projectData" , JSON.stringify(arr));
+        console.log(arr);
+                cartCountShow(arr)
+
+    })
       document.querySelector(".new").append(div)
 })
