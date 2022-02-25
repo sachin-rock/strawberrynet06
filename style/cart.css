@@ -126,7 +126,7 @@ body{
 
 #cartright button{
     border: none;
-    background-color: blue;
+    background-color: rgb(98,51,129);
     width: 40%;
     color: white;
     padding: 3%;
@@ -217,11 +217,11 @@ body{
 }
 
 
-@font-face {
-    font-family: roboto;
-    src: url("project/fonts/Roboto-Bold.ttf");
-}
 
-body{
-    font-family: roboto;
+
+button{
+    cursor: pointer;
+}
+button :hover{
+    background-color: white;
 }
