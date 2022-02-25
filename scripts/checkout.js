@@ -90,6 +90,7 @@ total: "3250.88"
         let h4 = document.createElement("h2");
         h4.innerText = `Order Total`;
         let h5 = document.createElement("h2");
+        h5.id = "totalCartAmount";
         h5.innerText = `INR ${el.total}`;
 
         
@@ -237,8 +238,46 @@ save.addEventListener("click",saveButton);
 
 function saveButton(){
 
-    
-    
+   //declaring first name and last name
+   let fName = document.getElementById("fName").value;
+   let lName = document.getElementById("lName").value;
+   
+   if(fName == "" || lName == ""){
+       alert("Enter Name");
+       return;
+   }
+
+   //Declaring address 1
+   let a1 = document.getElementById("address1").value;
+
+   if(a1 ==""){
+       alert("Enter Address");
+       return;
+   }
+
+   //declaring city
+   let cit = document.getElementById("city").value;
+   
+   if(cit == ""){
+       alert("City Name");
+       return;
+   }
+
+   //declaring pincode
+   let pincode_id = document.getElementById("pin").value;
+
+   if(pincode_id == ""){
+       alert("Enter PinCode");
+       return;
+   }
+
+   //Declaring Mobile Number
+   let mobile_id = document.getElementById("mobile").value;
+
+   if(mobile_id == ""){
+       alert("Enter Mobile Number");
+       return;
+   }
 
     let div = document.createElement("div");
     div.id = "shippingAdd";
@@ -271,8 +310,7 @@ function saveButton(){
     
     //getting first name and last name
 
-    let fName = document.getElementById("fName").value;
-    let lName = document.getElementById("lName").value;
+   
     
     let name = document.createElement("p");
     name.innerText = fName+" "+lName;
@@ -291,7 +329,7 @@ function saveButton(){
 
     let div4 = document.createElement("div");
 
-    let a1 = document.getElementById("address1").value;
+    
     let a2 = document.getElementById("address2").value;
     let a3 = document.getElementById("address3").value;
 
@@ -314,7 +352,7 @@ function saveButton(){
 
     let div5 = document.createElement("div");
 
-    let cit = document.getElementById("city").value;
+
     let city = document.createElement("p");
     city.innerText = cit;
 
@@ -325,7 +363,7 @@ function saveButton(){
     let div6 = document.createElement("div");
 
     let state_id = document.getElementById("state").value;
-    let pincode_id = document.getElementById("pin").value;
+    
 
     let state = document.createElement("p");
     state.innerText = state_id + " " + pincode_id;
@@ -349,10 +387,12 @@ function saveButton(){
     let mobile = document.createElement("h3");
     mobile.innerText = "Mobile";
 
-    let mobile_id = document.getElementById("mobile").value;
+    
 
     let mobile_nbr = document.createElement("p");
     mobile_nbr.innerText = mobile_id;
+
+    div8.append(mobile,mobile_nbr);
 
     //every data added
 
@@ -408,11 +448,15 @@ function paymentDetails(parent){
     parent.innerHTML = null;
 let div = document.createElement("div");
 div.id = "cardPayment";
-
+let div2 = document.createElement("div");
+div2.id = "cardNumberDiv"
 let cardNumber = document.createElement("input");
 cardNumber.type = "number";
 cardNumber.placeholder = "card number(without space)";
 cardNumber.id = "cardNumber";
+
+div2.append(cardNumber);
+
 
 let div1 = document.createElement("div");
 div1.id = "expiry_cvv";
@@ -421,15 +465,17 @@ let expiry = document.createElement("input");
 expiry.type = "number";
 expiry.placeholder = "MM/YY";
 expiry.setAttribute("class","expiry");
+expiry.id = "expiry"
 
 let cvv = document.createElement("input");
 cvv.type = "number";
 cvv.placeholder = "CVV";
 cvv.setAttribute("class","expiry");
+cvv.id = "cvv";
 
 div1.append(expiry,cvv);
 
-div.append(div1);
+div.append(div2,div1);
 
 parent.append(cardNumber,div)
 }
@@ -484,8 +530,61 @@ let jcbDiv = document.getElementById("jcbcard");
 jcb.addEventListener("click",function(){
 
     paymentDetails(jcbDiv);
+    
+
+});
+
+let payNow = document.getElementById("payNow");
+payNow.addEventListener("click",function(){
+let cardNumber = document.getElementById("cardNumber").value;
+cardNumber.toString();
 
 
+let expiry = document.getElementById("expiry").value;
+expiry.toString();
+
+let cvv = document.getElementById("cvv").value;
+cvv.toString();
+
+if((cardNumber.length == 12) && (expiry.length == 5) && (cvv.length == 3)){
+    alert("Payment Succesfull");
+
+    setTimeout(function(){
+        window.location.href = "home.html"
+    })
+}else{
+    alert("Enterd wrong Card Details");
+}
+
+});
+
+let applyPromo = document.getElementById("applyPromo");
+
+let count = 0;
+applyPromo.addEventListener("click",function(){
+
+    let promocode = document.getElementById("promocode").value;
+    
+    if(count == 1){
+        alert("Promocode Already Applied");
+        return;
+    }
+
+    if(promocode === "MASAI30"){
+        let t1 = totalCart[0].total;
+    let output = t1 - ((t1*30)/100);
+    output = output.toFixed(2);
+
+    count++;
+    alert("Promo Code Applied")
+    let total_op =document.getElementById("totalCartAmount");
+    total_op.innerText = "";
+
+    total_op.innerText = output;
+    }else{
+        alert("Wrong Promo Code")
+    }
+    
 });
 
 showData(checkOutData);
