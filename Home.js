@@ -19,7 +19,13 @@ function myFunction() {
   }
 
 
-var arr=JSON.parse(localStorage.getItem("projectData"))||[];
+var arr= JSON.parse(localStorage.getItem("projectData"))||[];
+function cartCountShow(cart){
+    var count =  document.getElementsByClassName("cartCount")[0]
+      count.textContent=cart.length;
+  
+  }
+  
 
   var mask=[
     {
@@ -102,7 +108,7 @@ mask.map(function(data){
         arr.push(data);
 
         localStorage.setItem("projectData" , JSON.stringify(arr));
-        console.log(arr);
+        cartCountShow(arr)
     })
 
     div.append(image,nam,des,price,btn);
@@ -111,6 +117,7 @@ mask.map(function(data){
 
     document.querySelector(".mask").append(div);
 })
+
 
 var eye=[
        {
@@ -190,6 +197,8 @@ eye.map(function(data){
 
         localStorage.setItem("projectData" , JSON.stringify(arr));
         console.log(arr);
+        cartCountShow(arr)
+
     })
     div.append(image,nam,des,price,btn);
     
@@ -277,6 +286,8 @@ hair.map(function(data){
 
         localStorage.setItem("projectData" , JSON.stringify(arr));
         console.log(arr);
+                cartCountShow(arr)
+
     })
     div.append(image,nam,des,price,btn);
     
@@ -368,6 +379,8 @@ lips.map(function(data){
 
         localStorage.setItem("projectData" , JSON.stringify(arr));
         console.log(arr);
+                cartCountShow(arr)
+
     })
     div.append(image,nam,des,price,btn);
     
@@ -457,6 +470,8 @@ men.map(function(data){
 
         localStorage.setItem("projectData" , JSON.stringify(arr));
         console.log(arr);
+                cartCountShow(arr)
+
     })
     div.append(image,nam,des,price,btn);
     
@@ -540,6 +555,8 @@ var div=document.createElement("div");
 
         localStorage.setItem("projectData" , JSON.stringify(arr));
         console.log(arr);
+                cartCountShow(arr)
+
     })
     div.append(image,nam,des,price,btn);
     
@@ -630,6 +647,8 @@ daily.map(function(data){
 
         localStorage.setItem("projectData" , JSON.stringify(arr));
         console.log(arr);
+                cartCountShow(arr)
+
     })
     div.append(image,nam,des,price,btn);
     
@@ -695,6 +714,8 @@ var best=[
 
         localStorage.setItem("projectData" , JSON.stringify(arr));
         console.log(arr);
+                cartCountShow(arr)
+
     })
       document.querySelector(".best").append(div);
 })
@@ -754,6 +775,8 @@ var div=document.createElement("div");
 
         localStorage.setItem("projectData" , JSON.stringify(arr));
         console.log(arr);
+                cartCountShow(arr)
+
     })
       document.querySelector(".deals").append(div)
 })
@@ -812,6 +835,8 @@ wen.map(function(data){
 
         localStorage.setItem("projectData" , JSON.stringify(arr));
         console.log(arr);
+                cartCountShow(arr)
+
     })
       document.querySelector(".new").append(div)
 })
