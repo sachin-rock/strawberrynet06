@@ -1,20 +1,35 @@
 let cartData = JSON.parse(localStorage.getItem("projectData")) || [];
 
+let totalCart= JSON.parse(localStorage.getItem("totalCart")) ||[];
+
+
 // console.log(cartData);
+
+// let totalCart=[];
+// let totalObj = {
+
+// };
 
 let products = document.getElementById("products");
 var sumArr=[];
+
+let checkOutData = [];
+
 
 function showData(data){
     products.innerHTML =null;
     products.innerText = "";
     sumArr = [];
+    
+       
 
     let goods = document.createElement("p");
     goods.innerText = "Goods shipped from Strawberrynet";
     products.append(goods);
 
     data.map(function(el,index){
+
+        let obj = {} 
 
         let div = document.createElement("div");
         div.id = "card";
@@ -26,14 +41,18 @@ function showData(data){
         let image = document.createElement("img");
         image.src = el.image;  
         
+        obj["image"] = el.image;
         div1.append(image);
 
         let div2 = document.createElement("div");
     
     let title = document.createElement("p");
-    title.innerText = el.title;
+    title.innerText = el.brand;
     let desc = document.createElement("p");
-    desc.innerText = el.desc;
+    desc.innerText = el.name;
+
+    obj["title"] = el.brand;
+    obj["desc"] = el.name;
    
     div2.append(title,desc);
 
@@ -41,7 +60,8 @@ function showData(data){
     div3.id = "qty";
 
     let qty = 1;
-
+    
+    obj["qty"] = qty;
     //div4 initialistion
     let div4 = document.createElement("div");
     // let qty = document.getElementById(`select${i}`).value 
@@ -53,21 +73,37 @@ function showData(data){
     let x = qty*el.price;
         sumArr[index] = x;
 
+    obj["price"] = x;
+    obj["single"] = el.price;
+
     showPrice(prodPrice,x);
     let div5 = document.createElement("div");
     let dlt = document.createElement("img");
     dlt.id = "delete";
-    dlt.src = "/Project/images/icons8-delete-64.png";
+    dlt.src = "/Project/images/remove.png";
 
     dlt.addEventListener("click",function (){
+        
+        console.log(data,"data before")
+        
         data.splice(index,1);
         sumArr.splice(index,1);
         showSum(sumArr);
         localStorage.setItem("projectData",JSON.stringify(data))
-        let cartData = JSON.parse(localStorage.getItem("projectData")) || [];
+        cartData = JSON.parse(localStorage.getItem("projectData")) || [];
+
+        
+        checkOutData.splice(index,1);
+
+
+        checkOutData = [];
+        
+        localStorage.setItem("checkOutData",JSON.stringify(checkOutData));
+
         
         products.innerHTML = null;
-        showData(cartData);
+        
+        showData(data);
         
 
     });
@@ -79,6 +115,7 @@ function showData(data){
     p10.innerText = ` ${qty} `;
     let b1 = document.createElement("button");
     b1.innerText = "+";
+    
     b1.addEventListener("click",function(){
         if(qty<20){
             qty++;
@@ -87,7 +124,19 @@ function showData(data){
             let val = qty * el.price;
             sumArr[index] = val;
             showPrice(prodPrice,val);
-            showSum(sumArr);    
+            showSum(sumArr);
+            
+            checkOutData[index]["image"] = el.image;
+            checkOutData[index]["title"] = el.brand;
+            checkOutData[index]["desc"] = el.name;
+            checkOutData[index]["qty"] = qty;
+            checkOutData[index]["price"] = val;
+            checkOutData[index]["single"] = el.price;
+            console.log(checkOutData,"b1");
+            localStorage.setItem("checkOutData",JSON.stringify(checkOutData));
+
+            
+            
         }else{
             qty = 20;
         }
@@ -103,22 +152,44 @@ function showData(data){
             sumArr[index] = val;
             showPrice(prodPrice,val);
             showSum(sumArr);
+
+            checkOutData[index]["image"] = el.image;
+            checkOutData[index]["title"] = el.brand;
+            checkOutData[index]["desc"] = el.name;
+            checkOutData[index]["qty"] = qty;
+            checkOutData[index]["single"] = el.price;
+            checkOutData[index]["price"] = val;
+
+            console.log(checkOutData,"b2");
+            localStorage.setItem("checkOutData",JSON.stringify(checkOutData));
+
+            let tem = JSON.parse(localStorage.getItem("checkOutData"));
+
+            
+            
         }else{
             qty = 1;
         }
     });
     
 
+    checkOutData.push(obj);
+
     div3.append(b2,p10,b1);
   
     div.append(div1,div2,div3,div4,div5);
 
-    products.append(div);
+    products.append(hr,div);
+    
   
     })
     let hr5=document.createElement("hr");
     products.append(hr5)
     showSum(sumArr);
+
+    localStorage.setItem("checkOutData",JSON.stringify(checkOutData));
+    console.log(checkOutData,"first");
+    
 };
 
 
@@ -129,9 +200,16 @@ function showPrice(parent,amount){
     parent.innerText = amount;
 }
 
-
-function showSum(sumArr){
+function showSum(sumArr,qty){
     let sum =0;
+    
+    totalCart = [];
+    localStorage.setItem("totalCart",JSON.stringify(totalCart));
+
+    let totalObj = {
+
+         };
+    
     for(let i=0;i<sumArr.length;i++){
         sum +=sumArr[i];
     }
@@ -151,6 +229,8 @@ function showSum(sumArr){
     let h2 = document.createElement("h4");
     h2.innerText = `INR ${sum}`;
 
+    totalObj["cartTotal"] = sum;
+
     div1.append(h1,h2);
 
     //div2 initialisation
@@ -163,6 +243,10 @@ function showSum(sumArr){
     let p2 = document.createElement("p");
     let temp = (sum*10)/100;
     temp.toFixed(2);
+    
+    
+    totalObj["newCustomer"] = temp;
+    
     p2.innerText =`-INR ${temp}`;
     sum = sum-temp;
     sum.toFixed(2);
@@ -180,11 +264,16 @@ function showSum(sumArr){
     temp = (sum*8)/100;
     temp = temp.toFixed(2);
     p4.innerText =`-INR ${temp}`;
+    
+    
+    totalObj["february"] = temp;
+
     sum = sum-temp;
 
     div3.append(p3,p4);
 
     //div4 starts
+    totalObj["stdShip"] = "";
 
     let div4 = document.createElement("div");
     if(sum<11582){
@@ -197,10 +286,15 @@ function showSum(sumArr){
         temp = 772.20;
         sum = sum+temp;
         p6.innerText =`INR ${temp}`;
-    
+        
+
+        totalObj["stdShip"] = temp;
+
         div4.append(p5,p6);
 
 
+    }else{
+        totalObj["stdShip"] = 0;
     }
 
     //div5 starts
@@ -213,6 +307,7 @@ function showSum(sumArr){
         sum = sum+temp;
         p8.innerText =`INR ${temp}`;
         
+        totalObj["freight"] = temp;
         div5.append(p7,p8);
 
     //div6 starts
@@ -225,6 +320,8 @@ function showSum(sumArr){
     let h4 = document.createElement("h2");
     sum = sum.toFixed(2);
     h4.innerText = `INR ${sum}`;
+
+    totalObj["total"] = sum;
     div6.append(h3,h4);
 
     div.append(div1,div2,div3,div4,div5,hr2,div6);
@@ -232,6 +329,11 @@ function showSum(sumArr){
 
     
     cartTotal.append(div);
+
+    totalCart.push(totalObj);
+
+    console.log(totalCart,"totalCart");
+    localStorage.setItem("totalCart",JSON.stringify(totalCart));
 
     showSpend(sum);
 }
@@ -266,4 +368,7 @@ if(sum<11582){
 
 }
 
-
+let checkOutPage = document.getElementById("checkOutPage");
+checkOutPage.addEventListener("click",function(){
+    window.location.href = "checkout.html";
+})
