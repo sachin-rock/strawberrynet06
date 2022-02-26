@@ -575,8 +575,11 @@ cvv.toString();
 if((cardNumber.length == 12) && (expiry.length == 5) && (cvv.length == 3)){
     alert("Payment Succesfull");
 
+    let projectData = [];
+    localStorage.setItem("projectData",JSON.stringify(projectData));   
+
     setTimeout(function(){
-        window.location.href = "home.html"
+        window.location.href = "Home.html"
     })
 }else{
     alert("Enterd wrong Card Details");
