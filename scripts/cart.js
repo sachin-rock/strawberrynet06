@@ -74,11 +74,11 @@ function showData(data){
    
     prodPrice.setAttribute("class","price");
 
-    let x = qty*el.price;
+    let x = qty*Number(el.price);
         sumArr[index] = x;
 
     obj["price"] = x;
-    obj["single"] = el.price;
+    obj["single"] = Number(el.price);
         //showPrice() function is a seperate function used to show price only because,
         //  it need to change with qty change and removing a product.
     showPrice(prodPrice,x);
@@ -136,7 +136,7 @@ function showData(data){
             //after changing qty value we need to change sumArr and need to show updated product price w.r.t qty
 
             p10.innerText = `${qty}`;
-            let val = qty * el.price;
+            let val = qty * Number(el.price);
             sumArr[index] = val;
             showPrice(prodPrice,val);
             showSum(sumArr);
@@ -147,7 +147,7 @@ function showData(data){
             checkOutData[index]["desc"] = el.name;
             checkOutData[index]["qty"] = qty;
             checkOutData[index]["price"] = val;
-            checkOutData[index]["single"] = el.price;
+            checkOutData[index]["single"] = Number(el.price);
             console.log(checkOutData,"b1");
             localStorage.setItem("checkOutData",JSON.stringify(checkOutData));
 
@@ -164,7 +164,7 @@ function showData(data){
         if(qty>1){
             qty--;
             p10.innerText = ` ${qty} `;
-            let val = qty * el.price;
+            let val = qty * Number(el.price);
             sumArr[index] = val;
             showPrice(prodPrice,val);
             showSum(sumArr);
@@ -173,7 +173,7 @@ function showData(data){
             checkOutData[index]["title"] = el.brand;
             checkOutData[index]["desc"] = el.name;
             checkOutData[index]["qty"] = qty;
-            checkOutData[index]["single"] = el.price;
+            checkOutData[index]["single"] = Number(el.price);
             checkOutData[index]["price"] = val;
 
             console.log(checkOutData,"b2");
@@ -396,5 +396,5 @@ checkOutPage.addEventListener("click",function(){
 
 let signout = document.getElementById("signout");
 signout.addEventListener("click",function(){
-    window.location.href = "signin.html"
+    window.location.href = "login.html"
 });
