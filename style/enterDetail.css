@@ -7,7 +7,7 @@
     background-color: white;
     padding-top: 1%;
 }
-.input{
+.inputCheckOut{
     width: 90%;
     margin-bottom: 10px;
     border: blue 1px solid;
@@ -15,7 +15,7 @@
     padding: 5px;
 }
 
-.inputA{
+.inputACheckOut{
     width: 90%;
     border: blue 1px solid;
     font-size: 18px;

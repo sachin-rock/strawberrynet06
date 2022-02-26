@@ -214,6 +214,8 @@ body{
 #products{
     padding-bottom: 5%;
     margin-bottom: 10px;
+
+    
 }
 
 
@@ -225,3 +227,20 @@ button{
 button :hover{
     background-color: white;
 }
+
+#cartContainer{
+    margin-top: 2%;
+
+    /* border: #52246D 2px solid; */
+    margin-bottom: 5%;
+    /* height: 1000px; */
+}
+
+#containerWhole{
+    /* border: 2px solid red; */
+    overflow: scroll;
+    height: 1000px;
+    /* height: max-content; */
+    margin-top: 20px;
+}
+

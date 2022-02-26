@@ -246,3 +246,16 @@ button{
     cursor: pointer;
 }
 
+#checkoutContainer{
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+/* #checkoutRight{
+     position: ; 
+} */
+
+#payment{
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+}
