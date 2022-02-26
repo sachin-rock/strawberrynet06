@@ -393,3 +393,8 @@ let checkOutPage = document.getElementById("checkOutPage");
 checkOutPage.addEventListener("click",function(){
     window.location.href = "checkout.html";
 });
+
+let signout = document.getElementById("signout");
+signout.addEventListener("click",function(){
+    window.location.href = "signin.html"
+});

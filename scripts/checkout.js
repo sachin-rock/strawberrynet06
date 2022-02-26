@@ -28,6 +28,7 @@ total: "3250.88"
         let h1 = document.createElement("h3");
         h1.innerText = "Payment Detail";
 
+        let hr3 = document.createElement("hr");
         //div for Item to show the cart sum before variables
 
         let div1 = document.createElement("div");
@@ -95,9 +96,9 @@ total: "3250.88"
         //div6 is to append toatal number of products and final amount
 
         let div6 = document.createElement("div");
-        let h4 = document.createElement("h2");
+        let h4 = document.createElement("h4");
         h4.innerText = `Order Total`;
-        let h5 = document.createElement("h2");
+        let h5 = document.createElement("h4");
         h5.id = "totalCartAmount";
         h5.innerText = `INR ${el.total}`;
 
@@ -106,7 +107,7 @@ total: "3250.88"
 
 
 
-        div.append(h1,div1,div2,div3,div4,div5,hr2,div6);
+        div.append(h1,hr3,div1,div2,div3,div4,div5,hr2,div6);
 
         cartValue.append(div);        
 
@@ -123,13 +124,13 @@ function enterDetail(){
     <div id="ship">
     <h3>SHIPPING ADDRESS</h3>
     <div id="userDetails">
-        <input type="text" class="input" name="" id="fName" placeholder="First Name">
+        <input type="text" class="inputCheckOut" name="" id="fName" placeholder="First Name(*)">
         <br>
-        <input type="text" name="" class="input" id="lName" placeholder="Last Name">
+        <input type="text" name="" class="inputCheckOut" id="lName" placeholder="Last Name(*)">
         <br>
-        <input type="text" name="" class="input" id="company" placeholder="Company">
+        <input type="text" name="" class="inputCheckOut" id="company" placeholder="Company">
         <br>
-        <select name="" class="input" id="country">
+        <select name="" class="inputCheckOut" id="country">
             <option value="">Country</option>
             <option value="India">India</option>
             <option value="USA">USA</option>
@@ -137,21 +138,21 @@ function enterDetail(){
             <option value="Singapore">Singapore</option>
         </select>
         <br>
-        <input type="text" class="inputA" id="address1" placeholder="Address">
+        <input type="text" class="inputACheckOut" id="address1" placeholder="Address(*)">
         <br>
-        <input type="text" name="" class="inputA" id="address2" placeholder="">
+        <input type="text" name="" class="inputACheckOut" id="address2" placeholder="">
         <br>
-        <input type="text" name="" class="input" id="address3">
-        <br>
-        
-        <input type="text" name="" class="input" id="city" placeholder="City/Town">
-        <br>
-        <input type="text" name="" class="input" id="state" placeholder="State/Province">
-        <br>
-        <input type="number" name="" class="input" id="pin" placeholder="Zip/Pincode">
+        <input type="text" name="" class="inputCheckOut" id="address3">
         <br>
         
-        <input type="number" name=""  id="mobile" placeholder="Mobile">
+        <input type="text" name="" class="inputCheckOut" id="city" placeholder="City/Town(*)">
+        <br>
+        <input type="text" name="" class="inputCheckOut" id="state" placeholder="State/Province">
+        <br>
+        <input type="number" name="" class="inputCheckOut" id="pin" placeholder="Zip/Pincode(*)">
+        <br>
+        
+        <input type="number" name=""  id="mobile" placeholder="Mobile(*)">
         <br>
         <button id="save">SAVE & CONTINUE</button>
 
