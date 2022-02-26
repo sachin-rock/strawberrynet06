@@ -1,24 +1,28 @@
-let cartData = JSON.parse(localStorage.getItem("projectData")) || [];
+//cartData takes the productData from local storage
+
+let cartData = JSON.parse(localStorage.getItem("projectData")) ||  [];
+
+//totalCart will save the data of tolal price and extra
 
 let totalCart= JSON.parse(localStorage.getItem("totalCart")) ||[];
 
-
-// console.log(cartData);
-
-// let totalCart=[];
-// let totalObj = {
-
-// };
+//products are where data need to shown
 
 let products = document.getElementById("products");
+
+//sumArr stores the final cart price after qty change etc
 var sumArr=[];
 
+
+//checkOutDta stores the updated cart value in checkoutdata
 let checkOutData = [];
 
-
+//function showdata is use to render product list
 function showData(data){
     products.innerHTML =null;
     products.innerText = "";
+   
+   //emptying sumArr each time
     sumArr = [];
     
        
@@ -29,7 +33,7 @@ function showData(data){
 
     data.map(function(el,index){
 
-        let obj = {} 
+        let obj = {} //object is created to push the data in checkoutdata
 
         let div = document.createElement("div");
         div.id = "card";
@@ -62,7 +66,7 @@ function showData(data){
     let qty = 1;
     
     obj["qty"] = qty;
-    //div4 initialistion
+    //div4 initialistion done before completing Div3 because price needed declare earlier
     let div4 = document.createElement("div");
     // let qty = document.getElementById(`select${i}`).value 
     
@@ -75,16 +79,21 @@ function showData(data){
 
     obj["price"] = x;
     obj["single"] = el.price;
-
+        //showPrice() function is a seperate function used to show price only because,
+        //  it need to change with qty change and removing a product.
     showPrice(prodPrice,x);
+    
+    //div5 is used to add remove function
     let div5 = document.createElement("div");
     let dlt = document.createElement("img");
     dlt.id = "delete";
-    dlt.src = "/Project/images/remove.png";
+    dlt.src = "images/remove.png";
 
     dlt.addEventListener("click",function (){
         
         console.log(data,"data before")
+        
+        //we have to splice every arr needed to splice w.r.t index and value needed to be updated in local storage also
         
         data.splice(index,1);
         sumArr.splice(index,1);
@@ -103,6 +112,7 @@ function showData(data){
         
         products.innerHTML = null;
         
+        //we are calling showData function once again with updated data
         showData(data);
         
 
@@ -113,6 +123,9 @@ function showData(data){
 
     let p10 = document.createElement("p");
     p10.innerText = ` ${qty} `;
+
+    //b1 and b2 are used to change qty number
+
     let b1 = document.createElement("button");
     b1.innerText = "+";
     
@@ -120,12 +133,15 @@ function showData(data){
         if(qty<20){
             qty++;
             
+            //after changing qty value we need to change sumArr and need to show updated product price w.r.t qty
+
             p10.innerText = `${qty}`;
             let val = qty * el.price;
             sumArr[index] = val;
             showPrice(prodPrice,val);
             showSum(sumArr);
             
+            //w.r.t quantity change we need to update every keys in checkoutdata when only try to change price only there is a glitch
             checkOutData[index]["image"] = el.image;
             checkOutData[index]["title"] = el.brand;
             checkOutData[index]["desc"] = el.name;
@@ -172,7 +188,7 @@ function showData(data){
         }
     });
     
-
+    //pushing the obj to checkoutdata
     checkOutData.push(obj);
 
     div3.append(b2,p10,b1);
@@ -195,15 +211,18 @@ function showData(data){
 
 showData(cartData);
 
+//showPrice funtion used to update price value
 function showPrice(parent,amount){
     parent.innerText="";
     parent.innerText = amount;
 }
 
+//showSum is used to take the data from product data and make total and variable price and do required 
+
 function showSum(sumArr,qty){
-    let sum =0;
+    let sum =0; //variable declared to sum
     
-    totalCart = [];
+    totalCart = []; /// totalCart is reassigned
     localStorage.setItem("totalCart",JSON.stringify(totalCart));
 
     let totalObj = {
@@ -338,6 +357,8 @@ function showSum(sumArr,qty){
     showSpend(sum);
 }
 
+//showSpend function is used to add dynamicsm spend div as, in bar how much need to remove shipping charge
+
 function showSpend(sum){
     let parrent = document.getElementById("total");
     parrent.innerText ="";
@@ -371,4 +392,4 @@ if(sum<11582){
 let checkOutPage = document.getElementById("checkOutPage");
 checkOutPage.addEventListener("click",function(){
     window.location.href = "checkout.html";
-})
+});

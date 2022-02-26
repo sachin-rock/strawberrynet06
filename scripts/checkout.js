@@ -1,12 +1,13 @@
+//totalCart is var declared for taking the final total and variable from cart page
 let totalCart = JSON.parse(localStorage.getItem("totalCart"));
 
-
+//checkOutData is the variable used for taking the product detals and no.of products from cart page
 let checkOutData = JSON.parse(localStorage.getItem("checkOutData")) || [];
 console.log(totalCart);
 
 let cartValue = document.getElementById("cartValue");
 
-
+// <!--------To show the cart total in Right hand side  -->
 function showCartValue(data){
 
     cartValue.innerHTML = null;
@@ -27,6 +28,8 @@ total: "3250.88"
         let h1 = document.createElement("h3");
         h1.innerText = "Payment Detail";
 
+        //div for Item to show the cart sum before variables
+
         let div1 = document.createElement("div");
         div1.id = "cartCard";
         
@@ -36,6 +39,8 @@ total: "3250.88"
         h3.innerText = `INR ${el.cartTotal}`;
 
         div1.append(h2,h3);
+
+        //div 2 and div3 for giving offers wrt sales
 
         let div2 = document.createElement("div");
         div2.id = "redtext";
@@ -57,6 +62,7 @@ total: "3250.88"
 
         div3.append(p3,p4);
 
+        //div4 and div5 are freight charge and shipping charge
         let div4 = document.createElement("div");
         if(el.cartTotal<11582){
 
@@ -86,6 +92,8 @@ total: "3250.88"
 
         let hr2 = document.createElement("hr");
 
+        //div6 is to append toatal number of products and final amount
+
         let div6 = document.createElement("div");
         let h4 = document.createElement("h2");
         h4.innerText = `Order Total`;
@@ -109,7 +117,7 @@ total: "3250.88"
 
 showCartValue(totalCart);
 
-
+//function enterDetail is used to show address input section in checkout page(html content)
 function enterDetail(){
     return `
     <div id="ship">
@@ -152,6 +160,7 @@ function enterDetail(){
 `
 }
 
+//Attaching address input section
 let userInput = document.getElementById("EnterDetail");
 userInput.innerHTML = enterDetail();
 let products = document.getElementById("product");
@@ -165,11 +174,13 @@ des: 'Color Conserve Daily Color Protect Leave-In Treatment',
 qty: 5, 
 price: 13515 */
 
+
+//function showData is used for showing the final product list and details from cart 
 function showData(data){
     products.innerHTML = null;
 
-    let sum=0;
-    let count =0;
+    let sum=0;  //sumis declared to find the total sum
+    let count =0; // count is declared to find the number of products in cart
 
     data.map(function(el){
         
@@ -231,6 +242,8 @@ function showData(data){
 }
 
 console.log(checkOutData);
+
+//saveButton is used for taking the data from address input section and show in the place of address input section
 
 let save = document.getElementById("save");
 
@@ -418,12 +431,12 @@ visa.addEventListener("click",function(){
 
 // let PaymentArr = document.querySelectorAll(".paymentCard");
 
-
+// function payment Details is used to add input section into the card options given in webpage
 
 function paymentDetails(parent){
     
 
-    let PaymentArr = document.querySelectorAll(".divCardPayment");
+    //At first we are clearing all card input section
     
     let visaDiv = document.getElementById("visacard");
     visaDiv.innerHTML = null;
@@ -446,8 +459,14 @@ function paymentDetails(parent){
     
 
     parent.innerHTML = null;
+
+    //creating new div card
+
 let div = document.createElement("div");
 div.id = "cardPayment";
+
+//creating card number input section
+
 let div2 = document.createElement("div");
 div2.id = "cardNumberDiv"
 let cardNumber = document.createElement("input");
@@ -457,6 +476,7 @@ cardNumber.id = "cardNumber";
 
 div2.append(cardNumber);
 
+//creating expiry and cvv input part of card details
 
 let div1 = document.createElement("div");
 div1.id = "expiry_cvv";
@@ -479,6 +499,8 @@ div.append(div2,div1);
 
 parent.append(cardNumber,div)
 }
+
+//following functions are used to call paymentDetail function for diffferent cards
 
 //mastercard
 let master = document.getElementById("masterCheck");
@@ -534,6 +556,9 @@ jcb.addEventListener("click",function(){
 
 });
 
+
+//Taking the value from card detail and checking every data is given or not
+
 let payNow = document.getElementById("payNow");
 payNow.addEventListener("click",function(){
 let cardNumber = document.getElementById("cardNumber").value;
@@ -558,6 +583,8 @@ if((cardNumber.length == 12) && (expiry.length == 5) && (cvv.length == 3)){
 
 });
 
+
+//Giving Promo code option as MASAI30 and it gives 30% off in final total price
 let applyPromo = document.getElementById("applyPromo");
 
 let count = 0;
