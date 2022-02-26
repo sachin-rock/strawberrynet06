@@ -100,7 +100,7 @@ mask.map(function(data){
     des.setAttribute("class","des");
 
     var price=document.createElement("p");
-    price.textContent=data.price;
+    price.textContent=`Rs. ${data.price}`;
     price.setAttribute("class","price");
 
     var icon=document.createElement("i");
@@ -207,7 +207,7 @@ eye.map(function(data){
     des.setAttribute("class","des");
 
     var price=document.createElement("p");
-    price.textContent=data.price;
+    price.textContent=`Rs. ${data.price}`;
     price.setAttribute("class","price");
 
      var icon=document.createElement("i");
@@ -311,7 +311,7 @@ hair.map(function(data){
     des.setAttribute("class","des");
 
     var price=document.createElement("p");
-    price.textContent=data.price;
+    price.textContent=`Rs. ${data.price}`;
     price.setAttribute("class","price");
 
      var icon=document.createElement("i");
@@ -419,7 +419,7 @@ lips.map(function(data){
     des.setAttribute("class","des");
 
     var price=document.createElement("p");
-    price.textContent=data.price;
+    price.textContent=`Rs. ${data.price}`;
     price.setAttribute("class","price");
 
      var icon=document.createElement("i");
@@ -525,7 +525,7 @@ men.map(function(data){
     des.setAttribute("class","des");
 
     var price=document.createElement("p");
-    price.textContent=data.price;
+    price.textContent=`Rs. ${data.price}`;
     price.setAttribute("class","price");
 
      var icon=document.createElement("i");
@@ -624,7 +624,7 @@ var div=document.createElement("div");
     des.setAttribute("class","des");
 
     var price=document.createElement("p");
-    price.textContent=data.price;
+    price.textContent=`Rs. ${data.price}`;
     price.setAttribute("class","price");
 
      var icon=document.createElement("i");
@@ -730,7 +730,7 @@ daily.map(function(data){
     des.setAttribute("class","des");
 
     var price=document.createElement("p");
-    price.textContent=data.price;
+    price.textContent=`Rs. ${data.price}`;
     price.setAttribute("class","price");
 
      var icon=document.createElement("i");
@@ -834,7 +834,7 @@ var best=[
     des.setAttribute("class","des");
 
     var price=document.createElement("p");
-    price.textContent=data.price;
+    price.textContent=`Rs. ${data.price}`;
     price.setAttribute("class","price");
 
      var icon=document.createElement("i");
@@ -912,7 +912,7 @@ var div=document.createElement("div");
     des.setAttribute("class","des");
 
     var price=document.createElement("p");
-    price.textContent=data.price;
+    price.textContent=`Rs. ${data.price}`;
     price.setAttribute("class","price");
 
      var icon=document.createElement("i");
@@ -1012,7 +1012,7 @@ wen.map(function(data){
     des.setAttribute("class","des");
 
     var price=document.createElement("p");
-    price.textContent=data.price;
+    price.textContent=`Rs. ${data.price}`;
     price.setAttribute("class","price");
 
      var icon=document.createElement("i");
