@@ -307,17 +307,17 @@ function filterDeals() {
 var bag;
 function addToBAg(e) {
 
-    bag = JSON.parse(localStorage.getItem('bag'));
+    bag = JSON.parse(localStorage.getItem('projectData'));
 
     if (bag == null) {
         bag = [];
     } else {
-        bag = JSON.parse(localStorage.getItem('bag'));
+        bag = JSON.parse(localStorage.getItem('projectData'));
     }
 
     bag.push(e);
     
-    localStorage.setItem('bag', JSON.stringify(bag));
+    localStorage.setItem('projectData', JSON.stringify(bag));
 }
 
 function leadToProductPage(e) {

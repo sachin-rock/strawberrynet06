@@ -101,5 +101,5 @@ function addProducts(object) {
 
                 bag.push(temp);
 
-                localStorage.setItem("bag", JSON.stringify(bag));
+                localStorage.setItem("projectData", JSON.stringify(bag));
             }

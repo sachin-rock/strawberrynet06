@@ -141,7 +141,7 @@ function addToBAg(e) {
         
     bag.push(e);
     
-    localStorage.setItem('bag', JSON.stringify(bag));
+    localStorage.setItem('projectData', JSON.stringify(bag));
 }
 
 let wishlist = document.getElementById('wishlist');
