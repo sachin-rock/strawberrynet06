@@ -26,6 +26,15 @@ header {
   flex: 3;
 }
 
+#profileNameShow{
+display: none;
+
+}
+#profileNameShow img{
+  width: 30px;
+
+}
+
 #sticky{
   position: sticky;
   top: 0;
